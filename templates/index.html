@@ -1,0 +1,365 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/mystyle.css') }}"> <!--applying stylesheet-->
+<script type="text/javascript" async="" src="http://www.google-analytics.com/ga.js"></script>
+<script type="text/javascript" async="" src="http://www.google-analytics.com/ga.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/myscript.js') }}"></script> <!--applying javascript-->
+</head>
+<body>
+
+{% extends "layout.html" %}
+{% block content %}
+
+<div> <!--top of table-->
+<table id="info" width="545" border="1" align="center" cellpadding="5" cellspacing="1" bordercolor="#FFFFFF" bgcolor="#CCCCCC"> <!--creating table-->
+    <tbody>
+      <tr bordercolor="#FFFFFF" bgcolor="#FFFFFF">
+        <td width="285">
+        <strong>&nbsp;Energy Value</strong>
+        </td>
+        <td width="80">
+          <div align="center">
+
+                          Conversion Factor (2018)
+
+                    </div>
+        </td>
+        <td width="170">
+        <strong>&nbsp;Result</strong>
+          </td>
+      <tr bordercolor="#FFFFFF" bgcolor="#FFFFFF">
+        <td width="535" colspan="3">
+          <strong> Building Energy Values </strong>
+        </td>
+      </tr>
+
+
+      <tr bordercolor="#FFFFFF" bgcolor="#FFFFFF">  <!--natural gas-->
+        <tr>
+          <td width="285">
+           <input id="box1" type="text" oninput="calculate()" size="10"> kWh natural gas</td> <!--assigning ID to each textbox for numbers-->
+          <td>*0.18396=</td>
+          <td><input id="result"></td> <!--shows value of the multiplied result. This is repeated for each textbox with different IDs-->
+        </tr>
+
+
+        <tr bordercolor="#FFFFFF" bgcolor="#FFFFFF"> <!--electricity-->
+          <tr>
+            <td width="285">
+             <input id="box3" type="text" oninput="calculate()" size="10"> kWh Electricity</td>
+            <td>*0.28307=</td>
+            <td><input id="result1"></td>
+          </tr>
+
+
+<tr bordercolor="#FFFFFF" bgcolor="#FFFFFF">
+    <td width="535" colspan="3">
+      <strong> Transport - Land </strong>
+    </td>
+</tr>
+
+
+      <tr bordercolor="#FFFFFF" bgcolor="#FFFFFF"> <!--petrol average car-->
+        <tr>
+          <td width="285">
+           <input id="box5" type="text" oninput="calculate()" size="10"> miles: petrol (Average)</td>
+          <td>*0.29561=</td>
+          <td><input id="result2"></td>
+        </tr>
+
+
+        <tr bordercolor="#FFFFFF" bgcolor="#FFFFFF"> <!--petrol large car-->
+          <tr>
+            <td width="285">
+             <input id="box7" type="text" oninput="calculate()" size="10"> miles: petrol (Large)</td>
+            <td>*0.45723=</td>
+            <td><input id="result3"></td>
+          </tr>
+
+          <tr bordercolor="#FFFFFF" bgcolor="#FFFFFF"> <!--petrol medium car-->
+            <tr>
+              <td width="285">
+               <input id="box9" type="text" oninput="calculate()" size="10"> miles: petrol (Medium)</td>
+              <td>*0.312=</td>
+              <td><input id="result4"></td>
+            </tr>
+
+            <tr bordercolor="#FFFFFF" bgcolor="#FFFFFF"> <!--petrol small car-->
+              <tr>
+                <td width="285">
+                 <input id="box11" type="text" oninput="calculate()" size="10"> miles: petrol (Small)</td>
+                <td>*0.25049=</td>
+                <td><input id="result5"></td>
+              </tr>
+
+          <tr bordercolor="#FFFFFF" bgcolor="#FFFFFF"> <!--diesel average car-->
+            <tr>
+              <td width="285">
+               <input id="box13" type="text" oninput="calculate()" size="10"> miles: diesel (Average)</td>
+              <td>*0.28572=</td>
+              <td><input id="result6"></td>
+            </tr>
+
+            <tr bordercolor="#FFFFFF" bgcolor="#FFFFFF"> <!--diesel large car-->
+              <tr>
+                <td width="285">
+                 <input id="box15" type="text" oninput="calculate()" size="10"> miles: diesel (Large)</td>
+                <td>*0.34634=</td>
+                <td><input id="result7"></td>
+              </tr>
+
+              <tr bordercolor="#FFFFFF" bgcolor="#FFFFFF"> <!--diesel medium car-->
+                <tr>
+                  <td width="285">
+                   <input id="box17" type="text" oninput="calculate()" size="10"> miles: diesel (Medium)</td>
+                  <td>*0.27927=</td>
+                  <td><input id="result8"></td>
+                </tr>
+
+          <tr bordercolor="#FFFFFF" bgcolor="#FFFFFF"> <!--diesel small car-->
+            <tr>
+              <td width="285">
+               <input id="box19" type="text" oninput="calculate()" size="10"> miles: diesel (Small)</td>
+            <td> *0.23389=</td>
+              <td><input id="result9"></td>
+            </tr>
+
+
+            <tr bordercolor="#FFFFFF" bgcolor="#FFFFFF"> <!--tram-->
+              <tr>
+                <td width="285">
+                 <input id="box21" type="text" oninput="calculate()" size="10"> pass.km: tram</td>
+              <td> *0.03967=</td>
+                <td><input id="result10"></td>
+              </tr>
+
+              <tr bordercolor="#FFFFFF" bgcolor="#FFFFFF"> <!--national rail-->
+                <tr>
+                  <td width="285">
+                   <input id="box23" type="text" oninput="calculate()" size="10"> pass.km: national rail</td>
+                <td> *0.04424=</td>
+                  <td><input id="result11"></td>
+                </tr>
+
+<tr bordercolor="#FFFFFF" bgcolor="#FFFFFF">
+    <td width="535" colspan="3">
+      <strong> Transport - Air (International) </strong>
+    </td>
+  </tr>
+
+                <tr bordercolor="#FFFFFF" bgcolor="#FFFFFF"> <!--international flight average-->
+                  <tr>
+                    <td width="285">
+                     <input id="box25" type="text" oninput="calculate()" size="10"> pass.km: average</td>
+                  <td> *0.18277=</td>
+                    <td><input id="result12"></td>
+                  </tr>
+
+                  <tr bordercolor="#FFFFFF" bgcolor="#FFFFFF"> <!--international flight economy-->
+                    <tr>
+                      <td width="285">
+                       <input id="box27" type="text" oninput="calculate()" size="10"> pass.km: economy</td>
+                    <td> *0.139965=</td>
+                      <td><input id="result13"></td>
+                    </tr>
+
+                    <tr bordercolor="#FFFFFF" bgcolor="#FFFFFF"> <!--international flight premium economy-->
+                      <tr>
+                        <td width="285">
+                         <input id="box29" type="text" oninput="calculate()" size="10"> pass.km: premium econ</td>
+                      <td> *0.22395=</td>
+                        <td><input id="result14"></td>
+                      </tr>
+
+                      <tr bordercolor="#FFFFFF" bgcolor="#FFFFFF"> <!--international flight business-->
+                        <tr>
+                          <td width="285">
+                           <input id="box31" type="text" oninput="calculate()" size="10"> pass.km: business</td>
+                        <td> *0.4059=</td>
+                          <td><input id="result15"></td>
+                        </tr>
+
+                        <tr bordercolor="#FFFFFF" bgcolor="#FFFFFF"> <!--international flight first class-->
+                          <tr>
+                            <td width="285">
+                             <input id="box33" type="text" oninput="calculate()" size="10"> pass.km: first class</td>
+                          <td> *0.55987=</td>
+                            <td><input id="result16"></td>
+                          </tr>
+
+  <tr bordercolor="#FFFFFF" bgcolor="#FFFFFF"> <!--header-->
+    <td width="535" colspan="3">
+        <strong> Transport - Air (Long-haul) </strong>
+    </td>
+  </tr>
+
+                  <tr bordercolor="#FFFFFF" bgcolor="#FFFFFF"> <!--long haul flights average-->
+                    <tr>
+                      <td width="285">
+                       <input id="box35" type="text" oninput="calculate()" size="10"> pass.km: average</td>
+                    <td>*0.21256=</td>
+                      <td><input id="result17"></td>
+                    </tr>
+
+                    <tr bordercolor="#FFFFFF" bgcolor="#FFFFFF"> <!--long haul flights economy-->
+                      <tr>
+                        <td width="285">
+                         <input id="box37" type="text" oninput="calculate()" size="10"> pass.km: economy</td>
+                      <td>*0.16279=</td>
+                        <td><input id="result18"></td>
+                      </tr>
+
+                      <tr bordercolor="#FFFFFF" bgcolor="#FFFFFF"> <!--long haul flights premium economy-->
+                        <tr>
+                          <td width="285">
+                           <input id="box39" type="text" oninput="calculate()" size="10"> pass.km: premium econ</td>
+                        <td>*0.26046=</td>
+                          <td><input id="result19"></td>
+                        </tr>
+
+                        <tr bordercolor="#FFFFFF" bgcolor="#FFFFFF"> <!--long haul flights business-->
+                          <tr>
+                            <td width="285">
+                             <input id="box41" type="text" oninput="calculate()" size="10"> pass.km: business</td>
+                          <td>*0.47208=</td>
+                            <td><input id="result20"></td>
+                          </tr>
+
+                          <tr bordercolor="#FFFFFF" bgcolor="#FFFFFF"> <!--long haul flights first class-->
+                            <tr>
+                              <td width="285">
+                               <input id="box43" type="text" oninput="calculate()" size="10"> pass.km: first class</td>
+                            <td>*0.65115=</td>
+                              <td><input id="result21"></td>
+                            </tr>
+
+  <tr bordercolor="#FFFFFF" bgcolor="#FFFFFF"> <!--header-->
+    <td width="535" colspan="3">
+      <strong> Transport - Air (Short-haul) </strong>
+    </td>
+  </tr>
+
+              <tr bordercolor="#FFFFFF" bgcolor="#FFFFFF"> <!--short haul flights average-->
+                <tr>
+                    <td width="285">
+                      <input id="box45" type="text" oninput="calculate()" size="10"> pass.km: average</td>
+                      <td>*0.16236=</td>
+                      <td><input id="result22"></td>
+              </tr>
+
+              <tr bordercolor="#FFFFFF" bgcolor="#FFFFFF"> <!--short haul flights economy-->
+                <tr>
+                    <td width="285">
+                      <input id="box47" type="text" oninput="calculate()" size="10"> pass.km: economy</td>
+                      <td>*0.1597=</td>
+                      <td><input id="result23"></td>
+              </tr>
+
+              <tr bordercolor="#FFFFFF" bgcolor="#FFFFFF"> <!--short haul flights business-->
+                <tr>
+                    <td width="285">
+                      <input id="box49" type="text" oninput="calculate()" size="10"> pass.km: business</td>
+                      <td>*0.23955=</td>
+                      <td><input id="result24"></td>
+              </tr>
+
+  <tr bordercolor="#FFFFFF" bgcolor="#FFFFFF"> <!--header-->
+    <td width="535" colspan="3">
+      <strong> Transport - Air (Domestic) </strong>
+    </td>
+  </tr>
+
+          <tr bordercolor="#FFFFFF" bgcolor="#FFFFFF"> <!--domestic average-->
+            <tr>
+              <td width="285">
+                <input id="box51" type="text" oninput="calculate()" size="10"> pass.km: average</td>
+              <td>*0.29832=</td>
+              <td><input id="result25"></td>
+          </tr>
+
+<tr bordercolor="#FFFFFF" bgcolor="#FFFFFF"> <!--water header-->
+  <td width="535" colspan="3">
+    <strong> Water Supply </strong>
+  </td>
+</tr>
+
+      <tr bordercolor="#FFFFFF" bgcolor="#FFFFFF"> <!--water supply-->
+        <tr>
+          <td width="285">
+            <input id="box53" type="text" oninput="calculate()" size="10"> cubic metres</td>
+            <td>*0.344=</td>
+            <td><input id="result26"></td>
+      </tr>
+
+      <tr bordercolor="#FFFFFF" bgcolor="#FFFFFF"> <!--waste header-->
+        <td width="535" colspan="3">
+          <strong> Waste - Landfill </strong>
+        </td>
+      </tr>
+
+      <tr bordercolor="#FFFFFF" bgcolor="#FFFFFF"> <!--waste paper-->
+        <tr>
+          <td width="285">
+            <input id="box55" type="text" oninput="calculate()" size="10"> tonnes/annum: paper</td>
+            <td>*1041.9017=</td>
+            <td><input id="result27"></td>
+      </tr>
+
+      <tr bordercolor="#FFFFFF" bgcolor="#FFFFFF"> <!--waste plastic-->
+        <tr>
+          <td width="285">
+            <input id="box57" type="text" oninput="calculate()" size="10"> tonnes/annum: plastic</td>
+            <td>* 9 =</td>
+            <td><input id="result28"></td>
+      </tr>
+
+<tr bordercolor="#FFFFFF" bgcolor="#FFFFFF"> <!--waste recylcing-->
+   <td width="535" colspan="3">
+      <strong> Waste - Recycling </strong>
+   </td>
+</tr>
+
+      <tr bordercolor="#FFFFFF" bgcolor="#FFFFFF"> <!--recyling plastic-->
+        <tr>
+          <td width="285">
+            <input id="box59" type="text" oninput="calculate()" size="10"> tonnes/annum: plastic</td>
+            <td>* 21.3842 =</td>
+            <td><input id="result29"></td>
+      </tr>
+
+      <tr bordercolor="#FFFFFF" bgcolor="#FFFFFF"> <!--recyling paper-->
+        <tr>
+          <td width="285">
+            <input id="box61" type="text" oninput="calculate()" size="10"> tonnes/annum: paper</td>
+            <td>* 21.3842 =</td>
+            <td><input id="result30"></td>
+      </tr>
+
+<tr bordercolor="#FFFFFF" bgcolor="#FFFFFF"> <!--total sum-->
+  <td width="535" colspan="3">
+    <strong> Total Values </strong>
+  </td>
+</tr>
+
+  <tr bordercolor="#FFFFFF" bgcolor="#FFFFFF"> <!--giving total output of all values added-->
+    <tr>
+      <td width="285">
+        <input id="total"> KgC02e</td>
+  </tr>
+
+  <tr bordercolor="#FFFFFF" bgcolor="#FFFFFF"> <!--giving total output of all values added-->
+    <tr>
+      <td width="285">
+        <input id="tonnes"> tonnes carbon</td>
+  </tr>
+
+<p>
+  <button type="button" onClick="history.go(0)" VALUE="Reset">Reset</button>
+</p>
+{% endblock %}
+</body>
+</html>

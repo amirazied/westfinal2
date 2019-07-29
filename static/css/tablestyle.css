@@ -1,0 +1,22 @@
+<style>
+table {
+  font-size: 12px;
+  border: 1px solid #CCC;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.table td {
+  padding: 4px;
+  margin: 3px;
+  border: 1px solid #CCC;
+}
+table th {
+  background-color: #104E8B;
+  color: #FFF;
+  font-weight: bold;
+}
+p {
+  padding: 5px;
+  text-align: left;
+  font-family: sans-serif; helvetica;
+}
+</style>
